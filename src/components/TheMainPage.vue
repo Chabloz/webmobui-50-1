@@ -19,13 +19,14 @@
   //   console.log(value);
   //   kelvin.value = value;
   // }
+  const decimalPlace = 4;
 </script>
 
 <template>
   <main>
     <!-- <base-input-number unit="K" :modelValue="kelvin" @update:model-value="changeKelvin($event)"/> -->
-    <base-input-number unit="K" v-model="kelvin"/>
-    <base-input-number unit="°C" v-model="celcius"/>
+    <base-input-number unit="K" v-model="kelvin" :decimal-places="decimalPlace"/>
+    <base-input-number unit="°C" v-model="celcius"  :decimal-places="decimalPlace"/>
 
     <base-message role="error">Error</base-message>
     <base-message role="warning">Warning</base-message>

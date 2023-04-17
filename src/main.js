@@ -14,6 +14,6 @@
 // console.log(z.value)
 
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './AppArray.vue'
 
 createApp(App).mount('#app')
