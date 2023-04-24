@@ -1,6 +1,6 @@
 <script setup>
   import { computed, ref, watch} from 'vue';
-  import {tasks, page} from '../../stores/tasks.js';
+  import {tasks, page} from '/src/stores/tasks.js';
 
   function deleteTask(task) {
     // delete the task in the tasks array

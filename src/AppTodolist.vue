@@ -10,6 +10,7 @@
   <the-tasks-header/>
   <the-tasks-form-add v-if="page === 'add'"/>
   <the-tasks-list v-if="page === 'home'"/>
+  <the-tasks-del v-if="page === 'del'"/>
 </template>
 
 <style scoped>
