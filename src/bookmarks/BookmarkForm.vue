@@ -1,5 +1,5 @@
 <script setup>
-  import { ref } from 'vue';
+  import { onMounted, ref } from 'vue';
   import { add, update } from '../stores/bookmarks.js';
 
   const props = defineProps({
@@ -16,6 +16,9 @@
       type: String,
       required: false,
       default: 'add',
+      validator: (value) => {
+        return ['add', 'modify'].includes(value);
+      }
     }
   })
 
@@ -28,7 +31,7 @@
 
   function manageSubmit() {
     const newBookmark = {
-      label: label.value,
+      label: label.value.trim(),
       url: url.value,
       tags: tags.value
     };
@@ -44,12 +47,24 @@
     emits('close');
   }
 
+  const elLabel = ref(null);
+
+  onMounted(() => {
+    elLabel.value.focus();
+  });
+
 </script>
 
 <template>
   <form @submit.prevent="manageSubmit()">
     <label for="label">Label</label>
-    <input type="text" name="label" required v-model="label"/>
+    <input
+      type="text"
+      name="label"
+      required
+      v-model="label"
+      ref="elLabel"
+    />
     <label for="url">URL</label>
     <input type="url" name="url" required v-model="url"/>
     <label for="tags">Tags</label>

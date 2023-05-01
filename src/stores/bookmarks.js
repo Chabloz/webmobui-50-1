@@ -1,6 +1,7 @@
 import { ref } from "vue";
+import { useLocalStorage } from "../composables/localStorage.js";
 
-export const bookmarks = ref([]);
+export const {value: bookmarks} = useLocalStorage('bookmarks', []);
 
 export function add(bookmark) {
   // validate bookmark
